@@ -1,15 +1,15 @@
 package com.zetapuppis.arguments;
 
 /**
- * A "switched" option, i.e. an option that can be preceeded by one or two
- * dashes.
+ * A "switched" option. Switched options are options that can be preceeded
+ * by one or two dashes.
  * <br/>
  * Long options are preceeded by two dashes (<code>--option</code>) while
  * short options use only one dash and usually are composed of only one
  * letter (<code>-l</code>).
  * <br/>
- * The long name (<code>name</code>) is mandatory, while the short name
- * is optional. Options can be required and have a value assigned.
+ * The long name is mandatory, while the short name is optional.
+ * Options can be mandatory and been assigned a value.
  */
 public final class SwitchArgument implements ArgumentItem {
     private final String mName;
