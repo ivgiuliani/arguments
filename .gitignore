@@ -1,0 +1,20 @@
+# vim
+*.swp
+
+# common
+*.jar
+
+# gedit
+*~
+
+# eclipse
+*.settings
+*.classpath
+
+# intellij
+*.idea
+*.project
+*.iml
+
+# maven
+target/
