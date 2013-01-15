@@ -8,7 +8,7 @@ import java.util.Map;
 
 /**
  * Parser for switch-based command line arguments (arguments in the form
- * of '<pre>-c</pre>' or '<pre>--option</pre>').
+ * of '<code>-c</code>' or '<code>--option</code>').
  */
 public class SwitchParser {
     private final static String OPT_LONG_PREFIX = "--";

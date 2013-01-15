@@ -17,6 +17,7 @@ public class PositionalArgument implements Comparable<PositionalArgument>, Argum
         mPosition = position;
     }
 
+    @Override
     public String getName() {
         return mName;
     }

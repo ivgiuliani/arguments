@@ -38,7 +38,7 @@ public class CommandLineParser {
      * keyword.
      *
      * <p>Note that position indices starts at 1.
-     * @param name name of the positional keyword to parse
+     * @param name unique name of the positional keyword to parse
      * @param position position of the argument
      * @return a {@link CommandLineParser} with the desired configuration
      * @throws CmdLineException if the specified position is not valid or a keyword
@@ -55,7 +55,8 @@ public class CommandLineParser {
      *
      * <p>Note that position indices starts at 1.
      * @param positionalArgument an instance of {@link PositionalArgument} that
-     *                           represents the argument to be parsed
+     *                           represents the argument to be parsed whose name
+     *                           it's unique across all the arguments for this parser
      * @return a {@link CommandLineParser} with the desired configuration
      * @throws CmdLineException if the specified position is not valid or a keyword
      *         with the same name already exists
@@ -76,7 +77,7 @@ public class CommandLineParser {
      * Returns a {@link CommandLineParser} that behaves equivalently to {@code this}
      * {@link CommandLineParser} but that will also parse the given switch-based
      * argument.
-     * @param name name of the switch argument to parse
+     * @param name unique name of the switch argument to parse
      * @param hasValue if the argument requires a value right afterwards
      * @param isRequired if the argument is mandatory
      * @return a {@link CommandLineParser} with the desired configuration
@@ -92,7 +93,7 @@ public class CommandLineParser {
      * Returns a {@link CommandLineParser} that behaves equivalently to {@code this}
      * {@link CommandLineParser} but that will also parse the given switch-based
      * argument.
-     * @param name name of the switch argument to parse
+     * @param name unique name of the switch argument to parse
      * @param shortName short version of the same switch argument
      * @param hasValue if the argument requires a value right afterwards
      * @param isRequired if the argument is mandatory
@@ -111,7 +112,8 @@ public class CommandLineParser {
      * {@link CommandLineParser} but that will also parse the given switch-based
      * argument.
      * @param switchArgument an instance of {@link SwitchArgument} that
-     *                       represents the argument to be parsed
+     *                       represents the argument to be parsed whose name it's
+     *                       unique across all the arguments for this parser
      * @return a {@link CommandLineParser} with the desired configuration
      * @throws CmdLineException if a switch argument with the same name already exists
      */

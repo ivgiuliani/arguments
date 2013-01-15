@@ -54,6 +54,7 @@ public final class SwitchArgument implements ArgumentItem {
      * Returns the option's long name without the preceeding dashes.
      * @return the option's long name
      */
+    @Override
     public String getName() {
         return mName;
     }
