@@ -22,14 +22,44 @@ public class CommandLineParser {
         System.arraycopy(args, 0, mArgs, 0, args.length);
     }
 
+    /**
+     * Creates a new {@link CommandLineParser} instance from the current argument
+     * list.
+     * @param args input argument list
+     * @return an instance of {@link CommandLineParser}
+     */
     public static CommandLineParser from(final String[] args) {
         return new CommandLineParser(args);
     }
 
+    /**
+     * Returns a {@link CommandLineParser} that behaves equivalently to {@code this}
+     * {@link CommandLineParser} but that will also parse the given positional
+     * keyword.
+     *
+     * <p>Note that position indices starts at 1.
+     * @param name name of the positional keyword to parse
+     * @param position position of the argument
+     * @return a {@link CommandLineParser} with the desired configuration
+     * @throws CmdLineException if the specified position is not valid or a keyword
+     *         with the same name already exists
+     */
     public CommandLineParser addPositional(final String name, final int position) throws CmdLineException {
         return addPositional(new PositionalArgument(name, position));
     }
 
+    /**
+     * Returns a {@link CommandLineParser} that behaves equivalently to {@code this}
+     * {@link CommandLineParser} but that will also parse the given positional
+     * keyword.
+     *
+     * <p>Note that position indices starts at 1.
+     * @param positionalArgument an instance of {@link PositionalArgument} that
+     *                           represents the argument to be parsed
+     * @return a {@link CommandLineParser} with the desired configuration
+     * @throws CmdLineException if the specified position is not valid or a keyword
+     *         with the same name already exists
+     */
     public CommandLineParser addPositional(final PositionalArgument positionalArgument) throws CmdLineException {
         if (mArgumentNameSet.contains(positionalArgument.getName())) {
             throw new CmdLineException(
@@ -42,12 +72,33 @@ public class CommandLineParser {
         return this;
     }
 
+    /**
+     * Returns a {@link CommandLineParser} that behaves equivalently to {@code this}
+     * {@link CommandLineParser} but that will also parse the given switch-based
+     * argument.
+     * @param name name of the switch argument to parse
+     * @param hasValue if the argument requires a value right afterwards
+     * @param isRequired if the argument is mandatory
+     * @return a {@link CommandLineParser} with the desired configuration
+     * @throws CmdLineException if a switch argument with the same name already exists
+     */
     public CommandLineParser addSwitch(final String name,
                                        final boolean hasValue,
                                        final boolean isRequired) throws CmdLineException {
         return addSwitch(new SwitchArgument(name, hasValue, isRequired));
     }
 
+    /**
+     * Returns a {@link CommandLineParser} that behaves equivalently to {@code this}
+     * {@link CommandLineParser} but that will also parse the given switch-based
+     * argument.
+     * @param name name of the switch argument to parse
+     * @param shortName short version of the same switch argument
+     * @param hasValue if the argument requires a value right afterwards
+     * @param isRequired if the argument is mandatory
+     * @return a {@link CommandLineParser} with the desired configuration
+     * @throws CmdLineException if a switch argument with the same name already exists
+     */
     public CommandLineParser addSwitch(final String name,
                                        final String shortName,
                                        final boolean hasValue,
@@ -55,6 +106,15 @@ public class CommandLineParser {
         return addSwitch(new SwitchArgument(name, shortName, hasValue, isRequired));
     }
 
+    /**
+     * Returns a {@link CommandLineParser} that behaves equivalently to {@code this}
+     * {@link CommandLineParser} but that will also parse the given switch-based
+     * argument.
+     * @param switchArgument an instance of {@link SwitchArgument} that
+     *                       represents the argument to be parsed
+     * @return a {@link CommandLineParser} with the desired configuration
+     * @throws CmdLineException if a switch argument with the same name already exists
+     */
     public CommandLineParser addSwitch(final SwitchArgument switchArgument) throws CmdLineException {
         if (mArgumentNameSet.contains(switchArgument.getName())) {
             throw new CmdLineException(
@@ -65,6 +125,15 @@ public class CommandLineParser {
         return this;
     }
 
+    /**
+     * Parse the command line string list.
+     * @return a {@link ParsedArguments} instance whose fields have been valorized
+     *         with the parsed argument's values
+     * @throws SwitchArgumentException if some error happens while parsing switch-based
+     *         arguments
+     * @throws PositionalArgumentException if some error happens while parsing
+     *         positional keywords
+     */
     public ParsedArguments parse() throws SwitchArgumentException, PositionalArgumentException {
         final ParsedArguments parsed = new ParsedArguments();
         String[] argsCopy = new String[mArgs.length];
