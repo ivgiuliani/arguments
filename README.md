@@ -19,7 +19,7 @@ public static void main(String[] args) {
                 .parse()
 
         File input = parsed.getExistingFile("input");
-        File output = parsed.getNewFile("input");
+        File output = parsed.getNewFile("output");
     } catch (CmdLineException ex) {
         System.err.println(ex.getMessage());
         return;
@@ -44,7 +44,7 @@ public static void main(String[] args) {
                 .parse()
 
         File input = parsed.getExistingFile("input");
-        File output = parsed.getNewFile("input");
+        File output = parsed.getNewFile("output");
         boolean hasBoolean = parsed.has("boolean");
         String booleanWithValue = parsed.getString("valued-optional", "default");
     } catch (CmdLineException ex) {
@@ -71,7 +71,7 @@ public static void main(String[] args) {
                 .parse()
 
         File input = parsed.getExistingFile("input");
-        File output = parsed.getNewFile("input");
+        File output = parsed.getNewFile("output");
         boolean hasBoolean = parsed.has("boolean");
         String booleanWithValue = parsed.getString("valued-optional", "default");
     } catch (CmdLineException ex) {
