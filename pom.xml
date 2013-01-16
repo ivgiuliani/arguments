@@ -35,5 +35,6 @@
     <modules>
         <module>arguments</module>
         <module>arguments-tests</module>
+        <module>arguments-examples</module>
     </modules>
 </project>
