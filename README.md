@@ -6,6 +6,8 @@ Java command line argument parsing made easy.
 Usage
 -----
 
+If you're interested, we have [more examples][examples].
+
 ### Positional keywords-based arguments
 ```java
 import com.zetapuppis.arguments.*;
@@ -97,3 +99,5 @@ Contributing
 4. Push to the brach (`git push origin my_branch`)
 5. Open a pull request
 6. Wait for review
+
+[examples]: https://github.com/kratorius/arguments/tree/master/arguments-examples/src/main/java/com/zetapuppis/arguments/examples
