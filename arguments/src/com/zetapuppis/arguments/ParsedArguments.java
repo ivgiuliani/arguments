@@ -56,6 +56,42 @@ public class ParsedArguments implements Iterable<Map.Entry<String, String>> {
     }
 
     /**
+     * Returns the value for the given argument parameter converted to a char
+     * <p>
+     * This also checks that the current value is actually a single char.
+     * @param name argument parameter's name
+     * @return the value for that argument converted to a char
+     * @throws ArgumentTypeException if the parameter cannot be converted to a char
+     *         or it doesn't exist
+     */
+    public char getChar(final String name) throws ArgumentTypeException {
+        String value = get(name);
+        char[] chars = value.toCharArray();
+        if (chars.length > 1) {
+            throw new ArgumentTypeException(
+                    String.format("value %s for argument %s was not a single character", value, name));
+        }
+        return chars[0];
+    }
+
+    /**
+     * Returns the value for the given argument parameter converted to a char
+     * <p>
+     * This also checks that the current value is actually a single char.
+     * @param name argument parameter's name
+     * @param defaultValue default value in case the argument is missing
+     * @return the value for that argument converted to a char
+     * @throws ArgumentTypeException if the parameter cannot be converted to a char
+     *         or it doesn't exist
+     */
+    public char getChar(final String name, final char defaultValue) throws ArgumentTypeException {
+        if (has(name)) {
+            return getChar(name);
+        }
+        return defaultValue;
+    }
+
+    /**
      * Returns the value for the given argument parameter converted as string
      * @param name argument parameter's name
      * @return the value for that argument converted to a string

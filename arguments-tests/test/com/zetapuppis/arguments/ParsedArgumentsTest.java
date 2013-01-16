@@ -56,6 +56,17 @@ public class ParsedArgumentsTest {
         assertEquals(mParsedArguments.getString("string"), "value");
     }
 
+    @Test(expected = ArgumentTypeException.class)
+    public void testGetChar() throws ArgumentTypeException {
+        mParsedArguments.set("char", "c");
+        assertEquals(mParsedArguments.getChar("char"), 'c');
+
+        // multiple chars must raise an error
+        mParsedArguments.set("char", "notjustachar");
+        mParsedArguments.getChar("char");
+        fail("parsed multiple chars as a single char");
+    }
+
     @Test
     public void testGetInt() {
         mParsedArguments.set("integer", "123");
