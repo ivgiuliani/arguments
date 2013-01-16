@@ -11,6 +11,8 @@ import java.util.Set;
 import static org.junit.Assert.*;
 
 public class ParsedArgumentsTest {
+    private final static char[] CHAR_CHOICES = new char[] { '+', '-', '*', '/' };
+
     private ParsedArguments mParsedArguments;
 
     @Before
@@ -65,6 +67,26 @@ public class ParsedArgumentsTest {
         mParsedArguments.set("char", "notjustachar");
         mParsedArguments.getChar("char");
         fail("parsed multiple chars as a single char");
+    }
+
+    @Test
+    public void testGetCharChoice() throws ArgumentTypeException {
+        mParsedArguments.set("char", "+");
+        assertEquals(mParsedArguments.getCharChoice("char", CHAR_CHOICES), '+');
+    }
+
+    @Test(expected = ArgumentTypeException.class)
+    public void testGetCharChoice_notInChoice() throws ArgumentTypeException {
+        // multiple chars must raise an error
+        mParsedArguments.set("char", "^");
+        mParsedArguments.getCharChoice("char", CHAR_CHOICES);
+    }
+
+    @Test(expected = ArgumentTypeException.class)
+    public void testGetCharChoice_multipleChars() throws ArgumentTypeException {
+        // multiple chars must raise an error
+        mParsedArguments.set("char", "abc");
+        mParsedArguments.getCharChoice("char", CHAR_CHOICES);
     }
 
     @Test

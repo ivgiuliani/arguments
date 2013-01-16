@@ -2,6 +2,7 @@ package com.zetapuppis.arguments;
 
 import javax.annotation.Nonnull;
 import java.io.File;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -87,6 +88,42 @@ public class ParsedArguments implements Iterable<Map.Entry<String, String>> {
     public char getChar(final String name, final char defaultValue) throws ArgumentTypeException {
         if (has(name)) {
             return getChar(name);
+        }
+        return defaultValue;
+    }
+
+    /**
+     * Returns the value for the given argument parameter converted to a char.
+     * <p>
+     * This also checks that the current value is actually a single char and that lies
+     * within a specified restricted set of possible choices
+     * @param name argument parameter's name
+     * @return the value for that argument converted to a char
+     * @throws ArgumentTypeException if the parameter cannot be converted to a char
+     *         or it doesn't exist
+     */
+    public char getCharChoice(final String name, final char[] choices) throws ArgumentTypeException {
+        String[] strChoices = new String[choices.length];
+        for (int i = 0; i < choices.length; i++) {
+            strChoices[i] = String.valueOf(choices[i]);
+        }
+        return getChoice(name, strChoices).toCharArray()[0];
+    }
+
+    /**
+     * Returns the value for the given argument parameter converted to a char.
+     * <p>
+     * This also checks that the current value is actually a single char and that lies
+     * within a specified restricted set of possible choices
+     * @param name argument parameter's name
+     * @param defaultValue default value in case the argument is missing
+     * @return the value for that argument converted to a char
+     * @throws ArgumentTypeException if the parameter cannot be converted to a char
+     *         or it doesn't exist
+     */
+    public char getCharChoice(final String name, final char[] choices, final char defaultValue) throws ArgumentTypeException {
+        if (has(name)) {
+            return getCharChoice(name, choices);
         }
         return defaultValue;
     }
