@@ -4,9 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.zetapuppis.arguments</groupId>
+    <parent>
+        <artifactId>arguments-parent</artifactId>
+        <groupId>com.zetapuppis.arguments</groupId>
+        <version>0.1-SNAPSHOT</version>
+    </parent>
+
     <artifactId>arguments</artifactId>
-    <version>0.1-SNAPSHOT</version>
 
     <name>Arguments: java command line parsing made easy</name>
     <description>
