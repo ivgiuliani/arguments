@@ -70,6 +70,11 @@ public class ParsedArgumentsTest {
     }
 
     @Test
+    public void testGetChar_default() throws ArgumentTypeException {
+        assertEquals(mParsedArguments.getChar("char", 'd'), 'd');
+    }
+
+    @Test
     public void testGetCharChoice() throws ArgumentTypeException {
         mParsedArguments.set("char", "+");
         assertEquals(mParsedArguments.getCharChoice("char", CHAR_CHOICES), '+');
