@@ -28,6 +28,6 @@ public class PositionalArgument implements Comparable<PositionalArgument>, Argum
 
     @Override
     public int compareTo(PositionalArgument positionalArgument) {
-        return Integer.compare(mPosition, positionalArgument.getPosition());
+        return mPosition - positionalArgument.getPosition();
     }
 }
