@@ -6,9 +6,21 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Combined PositionalArgument and SwitchArgument parsers.
- * This is a high level parsing utility and it's the one that should
- * always be used, regardless of the type of parsing needed.
+ * Parses argument from command line.
+ * This is a high level parsing utility and it's the one that should always
+ * be used, regardless of the type of parsing needed.
+ * <p>
+ * This class combines parsers for both {@link PositionalArgument} and
+ * {@link SwitchArgument} ({@link PositionalParser} and {@link SwitchParser}
+ * respectively) and performs some robustness checks that the other two parsers
+ * won't perform.
+ * <p>
+ * For most of the use cases using this class will be enough, however if you
+ * more flexibility it might be useful to use {@link PositionalParser} or
+ * {@link SwitchParser} (or both).
+ *
+ * @see PositionalParser
+ * @see SwitchParser
  */
 public class CommandLineParser {
     private final String[] mArgs;
