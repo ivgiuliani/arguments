@@ -16,7 +16,7 @@
     <version>0.1-SNAPSHOT</version>
 
     <name>Arguments Maven Parent</name>
-    <inceptionYear>2010</inceptionYear>
+    <inceptionYear>2013</inceptionYear>
 
     <licenses>
         <license>
@@ -43,4 +43,26 @@
         <module>arguments-tests</module>
         <module>arguments-examples</module>
     </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Compilation -->
+        <java.version>1.6</java.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.0</version>
+                <configuration>
+                    <optimize>true</optimize>
+                    <compilerReuseStrategy>reuseCreated</compilerReuseStrategy>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

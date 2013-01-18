@@ -4,9 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.zetapuppis.arguments</groupId>
+    <parent>
+        <artifactId>arguments-parent</artifactId>
+        <groupId>com.zetapuppis.arguments</groupId>
+        <version>0.1-SNAPSHOT</version>
+    </parent>
+
     <artifactId>arguments-tests</artifactId>
-    <version>0.1-SNAPSHOT</version>
 
     <name>Arguments Unit Tests</name>
     <description>
@@ -15,19 +19,6 @@
     </description>
 
     <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.0</version>
-                <configuration>
-                    <optimize>true</optimize>
-                    <compilerReuseStrategy>reuseCreated</compilerReuseStrategy>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                </configuration>
-            </plugin>
-        </plugins>
-
         <testResources>
             <testResource>
                 <directory>${basedir}/test</directory>
@@ -38,10 +29,6 @@
         </testResources>
         <testSourceDirectory>test</testSourceDirectory>
     </build>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
     <dependencies>
         <dependency>
