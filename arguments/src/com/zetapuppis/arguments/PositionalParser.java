@@ -11,8 +11,9 @@ public class PositionalParser {
     // use a Map to avoid duplicates
     private Map<Integer, PositionalArgument> mPositions = new HashMap<Integer, PositionalArgument>();
 
-    public void addPositional(final PositionalArgument positionalArgument) {
+    public PositionalParser addPositional(final PositionalArgument positionalArgument) {
         mPositions.put(positionalArgument.getPosition(), positionalArgument);
+        return this;
     }
 
     public ParsedArguments parse(final String[] args) throws PositionalArgumentException {

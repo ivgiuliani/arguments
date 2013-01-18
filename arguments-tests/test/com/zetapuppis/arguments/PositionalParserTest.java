@@ -124,7 +124,7 @@ public class PositionalParserTest {
     }
 
     @Test
-    public void testOverrideKeywords() throws ArgumentTypeException {
+    public void testOverridePositions() throws ArgumentTypeException {
         PositionalParser parser = new PositionalParser();
         parser.addPositional(new PositionalArgument("cmd", 1));
         parser.addPositional(new PositionalArgument("cmd2", 1));
@@ -142,5 +142,20 @@ public class PositionalParserTest {
         }
 
         assertEquals(parsedArguments.getString("cmd2"), "value");
+    }
+
+    @Test
+    public void testChaining() throws PositionalArgumentException, ArgumentTypeException {
+        final String[] args = new String[] {
+                "val1", "val2"
+        };
+
+        final ParsedArguments parsed = new PositionalParser()
+                .addPositional(new PositionalArgument("cmd1", 1))
+                .addPositional(new PositionalArgument("cmd2", 2))
+                .parse(args);
+
+        assertTrue(parsed.getString("cmd1").equals("val1"));
+        assertTrue(parsed.getString("cmd2").equals("val2"));
     }
 }
