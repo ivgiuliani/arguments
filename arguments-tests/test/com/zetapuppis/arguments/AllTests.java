@@ -8,7 +8,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses({ LineUtilsTest.class,
                 CommandLineParserTest.class,
                 PositionalArgumentTest.class,
-                KeywordParsingTest.class,
+                PositionalParserTest.class,
                 ParsedArgumentsTest.class,
                 SwitchParsingTest.class })
 public class AllTests {

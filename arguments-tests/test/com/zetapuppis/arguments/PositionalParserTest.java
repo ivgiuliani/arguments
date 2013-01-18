@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class KeywordParsingTest {
+public class PositionalParserTest {
     @Test
     public void testEmpty() {
         final PositionalParser parser = new PositionalParser();
