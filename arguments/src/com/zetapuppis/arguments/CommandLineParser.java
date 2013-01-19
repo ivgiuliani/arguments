@@ -7,7 +7,7 @@ import java.util.Set;
 
 /**
  * Parses arguments from command line.
- * This is a high level parsing utility and it's the one that should always
+ * This is a high level parsing utility and it's the one that should normally
  * be used, regardless of the type of parsing needed.
  * <p>
  * This class combines parsers for both {@link PositionalArgument} and
