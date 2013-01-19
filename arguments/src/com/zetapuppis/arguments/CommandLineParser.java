@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Parses argument from command line.
+ * Parses arguments from command line.
  * This is a high level parsing utility and it's the one that should always
  * be used, regardless of the type of parsing needed.
  * <p>
