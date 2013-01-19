@@ -27,8 +27,9 @@ public class SwitchParser {
      * Adds a new switch argument.
      * @param switchArgument an instance of {@link SwitchArgument}
      */
-    public void addSwitch(final SwitchArgument switchArgument) {
+    public SwitchParser addSwitch(final SwitchArgument switchArgument) {
         mSwitchArgumentList.add(switchArgument);
+        return this;
     }
 
     /**

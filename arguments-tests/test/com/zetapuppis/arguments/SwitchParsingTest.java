@@ -248,4 +248,20 @@ public class SwitchParsingTest {
         SwitchArgument opt = new SwitchArgument("name", "", true, false);
         assertFalse(opt.hasShortName());
     }
+
+    @Test
+    public void testChaining() throws ArgumentTypeException, SwitchArgumentException {
+        final String[] args = new String[] {
+                "--cmd1", "val1",
+                "--cmd2", "val2"
+        };
+
+        final ParsedArguments parsed = new SwitchParser()
+                .addSwitch(new SwitchArgument("cmd1", true, true))
+                .addSwitch(new SwitchArgument("cmd2", true, true))
+                .parse(args);
+
+        assertTrue(parsed.getString("cmd1").equals("val1"));
+        assertTrue(parsed.getString("cmd2").equals("val2"));
+    }
 }
