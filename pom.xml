@@ -51,6 +51,17 @@
         <java.version>1.6</java.version>
     </properties>
 
+    <scm>
+        <url>https://github.com/kratorius/arguments/</url>
+        <connection>scm:git:git://github.com/kratorius/arguments.git</connection>
+        <developerConnection>scm:git:git@github.com:kratorius/arguments.git</developerConnection>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/kratorius/arguments/issues</url>
+    </issueManagement>
+
     <build>
         <plugins>
             <plugin>

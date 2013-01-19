@@ -9,6 +9,7 @@
         <groupId>com.zetapuppis.arguments</groupId>
         <version>0.1-SNAPSHOT</version>
     </parent>
+
     <artifactId>arguments-examples</artifactId>
 
     <name>Arguments Examples</name>
