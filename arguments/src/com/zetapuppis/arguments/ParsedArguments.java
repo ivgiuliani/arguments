@@ -1,8 +1,6 @@
 package com.zetapuppis.arguments;
 
-import javax.annotation.Nonnull;
 import java.io.File;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -18,7 +16,7 @@ public class ParsedArguments implements Iterable<Map.Entry<String, String>> {
 
     /* package */ ParsedArguments() {}
 
-    private String get(@Nonnull final String name) throws ArgumentTypeException {
+    private String get(final String name) throws ArgumentTypeException {
         if (!this.has(name)) {
             throw new ArgumentTypeException(String.format("%s is not a valid argument", name));
         }
@@ -30,7 +28,7 @@ public class ParsedArguments implements Iterable<Map.Entry<String, String>> {
      * @param name argument's name
      * @return true if the argument has been parsed or false otherwise
      */
-    public boolean has(@Nonnull final String name) {
+    public boolean has(final String name) {
         return mOpts.containsKey(name);
     }
 
@@ -43,7 +41,7 @@ public class ParsedArguments implements Iterable<Map.Entry<String, String>> {
      * Set the given argument as existing (doesn't set a value)
      * @param name argument's name
      */
-    public void set(@Nonnull final String name) {
+    public void set(final String name) {
         set(name, "");
     }
 
@@ -52,7 +50,7 @@ public class ParsedArguments implements Iterable<Map.Entry<String, String>> {
      * @param name argument's name
      * @param value argument's value
      */
-    public void set(@Nonnull final String name, @Nonnull final String value) {
+    public void set(final String name, final String value) {
         mOpts.put(name, value);
     }
 

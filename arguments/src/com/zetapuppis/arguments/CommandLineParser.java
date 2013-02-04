@@ -1,6 +1,5 @@
 package com.zetapuppis.arguments;
 
-import javax.annotation.Nonnull;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -29,7 +28,7 @@ public class CommandLineParser {
     private final Set<String> mArgumentNameSet = new HashSet<String>();
     private int mPositionalArgumentsCount = 0;
 
-    private CommandLineParser(@Nonnull final String[] args) {
+    private CommandLineParser(final String[] args) {
         mArgs = new String[args.length];
         System.arraycopy(args, 0, mArgs, 0, args.length);
     }

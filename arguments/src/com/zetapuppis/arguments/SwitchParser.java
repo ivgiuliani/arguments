@@ -1,6 +1,5 @@
 package com.zetapuppis.arguments;
 
-import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -40,7 +39,7 @@ public class SwitchParser {
      * @throws SwitchArgumentException if required arguments are missing of arguments are
      *         not formatted properly
      */
-    public ParsedArguments parse(@Nonnull final String[] args) throws SwitchArgumentException {
+    public ParsedArguments parse(final String[] args) throws SwitchArgumentException {
         final ParsedArguments parsed = new ParsedArguments();
         final Map<String, SwitchArgument> switchIndex = preprocessSwitches();
 

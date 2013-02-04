@@ -1,6 +1,5 @@
 package com.zetapuppis.arguments;
 
-import javax.annotation.Nonnull;
 import java.util.Arrays;
 
 /**
@@ -25,7 +24,7 @@ public class LineUtils {
      *         items or an empty array if there aren't enough items
      *         to shift.
      */
-    public static String[] shiftArgs(@Nonnull final String[] args,
+    public static String[] shiftArgs(final String[] args,
                                      final int count) {
         if (count > args.length) {
             return new String[] {};
