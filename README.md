@@ -39,33 +39,6 @@ public static void main(String[] args) {
 
     try {
         parsed = CommandLineParser.from(args)
-                .addPositional("input", 1)
-                .addPositional("output", 2)
-                .addSwitch("boolean", false, false)
-                .addSwitch("valued-optional", true, false)
-                .parse()
-
-        File input = parsed.getExistingFile("input");
-        File output = parsed.getNewFile("output");
-        boolean hasBoolean = parsed.has("boolean");
-        String booleanWithValue = parsed.getString("valued-optional", "default");
-    } catch (CmdLineException ex) {
-        System.err.println(ex.getMessage());
-        return;
-    }
-}
-```
-
-    $ java -jar app.jar input.txt output.txt --valued-optional "value"
-
-### Mixed-style arguments
-```java
-import com.zetapuppis.arguments.*;
-public static void main(String[] args) {
-    final ParsedArguments parsed;
-
-    try {
-        parsed = CommandLineParser.from(args)
                 .addSwitch("input", true, true)
                 .addSwitch("output", true, true)
                 .addSwitch("boolean", false, false)
@@ -85,6 +58,35 @@ public static void main(String[] args) {
 
     $ java -jar app.jar --input input.txt --output output.txt --valued-optional "value"
 
+### Mixed-style arguments
+
+```java
+import com.zetapuppis.arguments.*;
+public static void main(String[] args) {
+    final ParsedArguments parsed;
+
+    try {
+        parsed = CommandLineParser.from(args)
+                .addPositional("input", 1)
+                .addPositional("output", 2)
+                .addSwitch("boolean", false, false)
+                .addSwitch("valued-optional", true, false)
+                .parse()
+
+        File input = parsed.getExistingFile("input");
+        File output = parsed.getNewFile("output");
+        boolean hasBoolean = parsed.has("boolean");
+        String booleanWithValue = parsed.getString("valued-optional", "default");
+    } catch (CmdLineException ex) {
+        System.err.println(ex.getMessage());
+        return;
+    }
+}
+```
+
+    $ java -jar app.jar input.txt output.txt --valued-optional "value"
+
+
 Installation
 ------------
 
@@ -101,3 +103,4 @@ Contributing
 6. Wait for review
 
 [examples]: https://github.com/kratorius/arguments/tree/master/arguments-examples/src/main/java/com/zetapuppis/arguments/examples
+
